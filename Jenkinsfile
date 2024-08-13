@@ -37,7 +37,7 @@ pipeline{
             steps{
                 withCredentials([string(credentialsId: 'dockerhubpass', variable: 'dockerhubpass')]) {
                     sh 'docker login -u nikhil268 -p ${dockerhubpass}'
-                    sh 'docker push nikhil268/project.v1
+                    sh 'docker push nikhil268/project.v1'
 }
             }
         }   
