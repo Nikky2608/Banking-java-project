@@ -30,12 +30,14 @@ pipeline{
         }
         stage('run dockerfile'){
           steps{
-               sh 'docker build -t myimg .'
+               sh 'docker build -t nikhil268/project.v1 .'
            }
          }
-        stage('port expose'){
+        stage('Login to docker hub and push the file'){
             steps{
-                sh 'docker run -dt -p 8091:8091 --name c000 myimg'
+                withCredentials([string(credentialsId: 'dockerhubpassword', variable: 'dockerhubpass')]) {
+                    sh 'docker login -u nikhil268 -p ${dockerhubpass}'
+}
             }
         }   
     }
