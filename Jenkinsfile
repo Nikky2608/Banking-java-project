@@ -36,7 +36,7 @@ pipeline{
         stage('Login to docker hub and push the file'){
             steps{
                 withCredentials([string(credentialsId: 'dockerhubpassword', variable: 'dockerhubpass')]) {
-                    sh 'docker login -u nikhil268 -p ${dockerhubpass}'
+                    sh 'docker login -u nikhil268 -p ${Timtam@2608}'
 }
             }
         }   
